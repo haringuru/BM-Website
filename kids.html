@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bal Mukund Classes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/kids.css">
+  <link rel="stylesheet" href="style/navbar.css">
+</head>
+<body>
+<header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.5/web-animations-next-lite.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <nav class="navbar">
+    <img src="https://d11n2py6p6cfxh.cloudfront.net/logo_removebg_preview_8f557059ad.png" alt="Kids Camp Logo" class="logo">
+    <a href="javascript:void(0);" class="toggle-button" id="navbarToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links" id="navbarLinks">
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="#headingGitaClass">About Us</a></li>
+        <li class="dropdown">
+          <a href="#headingLanguageClass" class="dropdown-toggle">Courses</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="#headingLanguageClass" class="dropdown-toggle">Indian Heritage</a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="#krishna">Krishna</a></li>
+                <li><a href="#ramayan">Ramayan</a></li>
+                <li><a href="#mahabharat">Mahabharat</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="kids.html">Kid's Corner</a></li>
+        <li><a href="#headingLanguageClass">Parents Corner</a></li>
+        <li><a href="#headingLanguageClass">Gallery</a></li>
+        <li><a href="#headingLanguageClass">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="grid">
+  <div class="box-cont"><div class="box"></div></div>
+  <div class="box-cont multiple-col"><div class="box"></div>     </div>
+  <div class="box-cont multiple-row"><div class="box"></div>     </div>
+  <div class="box-cont"><div class="box"></div></div>
+  <div class="box-cont"><div class="box"></div></div>
+  <div class="box-cont"><div class="box"></div></div>
+</div>
+
+<!--Polyfill for safari and Edge, normally I would use feature detection in js and add the script dynamically-->
+
+<script>
+const container = document.querySelectorAll(".box-cont");
+container.forEach((element) => {
+  element.addEventListener("mouseenter", function(event) {
+    const element = event.target.querySelector(".box");
+    const coords = getCoords(event.target.getBoundingClientRect());
+    const radius = circleSize(event.target.getBoundingClientRect(), coords)
+
+    circleConstraints(element, coords, radius)
+    animation(element)
+  });
+
+  element.addEventListener("mouseleave", function(event) {
+    const element = event.target.querySelector(".box");
+    animationLeave(element);
+  });
+});
+
+function animation(element) {
+  const transform = [
+    "scale(0)",
+    "scale(1)"
+  ];
+  const options = {
+    duration: 600,
+    fill: "forwards",
+    easing: "cubic-bezier(.2, 1, .2, 1)",
+    iterations: 1
+  };
+  element.animate({transform}, options);
+};
+
+function animationLeave(element) {
+  const transform = [
+    "scale(1)",
+    "scale(0)"
+  ];
+  const options = {
+    duration: 400,
+    fill: "forwards",
+    easing: "cubic-bezier(.2, 1, .2, 1)",
+    iterations: 1
+  };
+  element.animate({transform}, options);
+};
+
+function getCoords(rectangle) {
+  return {
+    x: rectangle.width * Math.random(),
+    y: rectangle.height * Math.random(),
+  }
+};
+
+function circleSize(rectangle, coords) {
+  const x1 = coords.x;
+  const y1 = coords.y;
+  const rectCoords = [
+    { x: 0, y: 0 },
+    { x: 0, y: rectangle.height },
+    { x: rectangle.width, y: 0 },
+    { x: rectangle.width, y: rectangle.height }
+  ];
+
+  return Math.max(...rectCoords.map((el) => {
+    const x2 = el.x;
+    const y2 = el.y;
+    return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+  }));
+}
+
+function circleConstraints(element, coords, radius) {
+  element.style.height = radius * 2 + 'px';
+  element.style.width = radius * 2 + 'px';
+  element.style.top = coords.y - radius + 'px';
+  element.style.left = coords.x - radius + 'px';
+}
+</script>
+</body>
+</html>

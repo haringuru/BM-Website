@@ -1,0 +1,128 @@
+
+
+/*about us*/
+
+.about-us-section {
+    padding: 50px;
+    background-color: #fff3dd;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 36px;
+    color: #291900;
+    font-family: "Holtwood One SC", serif;
+
+}
+
+.section-header p {
+    font-size: 20px;
+    color: #00B295;
+}
+
+.about-content {
+    margin-bottom: 40px;
+}
+
+.about-content p {
+    font-size: 18px;
+    color: #291900;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.swamiji-bio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.swamiji-photo img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
+.timeline {
+    margin-bottom: 40px;
+}
+
+.timeline h4 {
+    font-size: 28px;
+    color: #291900;
+    margin-bottom: 20px;
+}
+
+.timeline-event {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.event-photo img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.event-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.event-text h5 {
+    font-size: 24px;
+    color: #00B295;
+}
+
+.event-text p {
+    font-size: 18px;
+    color: #291900;
+}
+
+.bio-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.bio-text h3 {
+    font-size: 28px;
+    color: #291900;
+}
+
+.bio-text p {
+    font-size: 18px;
+    color: #291900;
+}
+
+.mission-vision-values {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.mvv-item {
+    text-align: center;
+    max-width: 300px;
+}
+
+.mvv-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.mvv-item h4 {
+    font-size: 24px;
+    color: #EF701F;
+}
+
+.mvv-item p, .mvv-item ul {
+    font-size: 18px;
+    color: #291900;
+}
