@@ -23,96 +23,83 @@ h2 {
     color: #333;
 }
 
-
-/* Hero Section */
-.hero-section {
-    position: relative;
-    height: 600px;
-    background-color: #fff3dd;
-    /*background-image: url('https://d11n2py6p6cfxh.cloudfront.net/Website_Website_10_0658abed64.png'); 
-    background-size: cover;
-    background-position: center;*/
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-/* About Section */
-#about {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.about-image {
+section.row-split {
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
+    padding: 0px;
+    
 }
 
-/* Image Styling */
-.about-image img {
-    max-width: 80%;
-    height: 70%;
-    position: absolute;
-    top: 10vw;
-    align-items: center;
-    border-radius: 10px; /* Optional: Adds rounded corners to the image */
-    margin-bottom: 20px; /* Adds space between the image and the text */
-    z-index: -1;
+/* Reverse Layout for Sections with Image on the Right 
+section.reverse {
+    flex-direction: row-reverse; /* Reverse the order: image on the right 
+}*/
+
+/* Columns */
+.column {
+    flex: 1;
+    padding: 0px;
 }
 
-/* About Text Styling */
-.about-text {
-    color: white; /* Make the text white to contrast with the image */
+/* Image Column */
+.image-column {
+    background-color: #1cb0f640;
+}
+
+.image-column img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /*cover*/
+    object-fit: cover;
+}
+
+/* Text Column */
+.text-column {
+    padding: 20px;
     text-align: center;
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: justify;
+}
+.text-column h2 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+.text-column h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.text-column p {
+    font-size: 1.2rem;
     color: #555;
-    padding: 10px 0;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
-.about-text h1 {
-    position: relative;
-    color: #011627;
-    /*color: #1cb0f6;*/
-    font-size:3vw;
-    text-align: center;
-}
-
-
-/* Responsive Adjustments */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    #about {
-        height: auto;
+    section.row-split {
+        flex-direction: column;
     }
 
-    .about-text h1 {
-        font-size: 2rem;
+    section.reverse {
+        flex-direction: column; /* Reverse layout is stacked vertically for mobile too */
     }
 
-    .about-text p {
-        font-size: 1rem;
+    .image-column, .text-column {
+        padding: 10px;
     }
-}
-
-.cta-button {
-    padding: 10px 25px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #00b295;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.cta-button:hover {
-    background-color: #008a73;
 }
 
 /* Section Styles */
