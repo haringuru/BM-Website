@@ -1,128 +1,208 @@
+/*colors we are using in the website
+#FF4E00
+#1cb0f6
+#FFF3DD,  
+#011627, (2) #291900, #031d44
+#ffd700, #F7B801, #f7cb15
+#00b295, (1) #00C49A 
+*/
 
 
-/*about us*/
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
 
-.about-us-section {
-    padding: 50px;
-    background-color: #fff3dd;
+h2 {
     text-align: center;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    color: #333;
 }
 
-.section-header {
-    margin-bottom: 30px;
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 600px;
+    background-color: #fff3dd;
+    /*background-image: url('https://d11n2py6p6cfxh.cloudfront.net/Website_Website_10_0658abed64.png'); 
+    background-size: cover;
+    background-position: center;*/
 }
 
-.section-header h2 {
-    font-size: 36px;
-    color: #291900;
-    font-family: "Holtwood One SC", serif;
-
+/* About Section */
+#about {
+    text-align: center;
+    padding: 50px 20px;
 }
 
-.section-header p {
-    font-size: 20px;
-    color: #00B295;
-}
-
-.about-content {
-    margin-bottom: 40px;
-}
-
-.about-content p {
-    font-size: 18px;
-    color: #291900;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.swamiji-bio {
+.about-image {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
 }
 
-.swamiji-photo img {
+/* Image Styling */
+.about-image img {
+    max-width: 80%;
+    height: 70%;
+    position: absolute;
+    top: 10vw;
+    align-items: center;
+    border-radius: 10px; /* Optional: Adds rounded corners to the image */
+    margin-bottom: 20px; /* Adds space between the image and the text */
+    z-index: -1;
+}
+
+/* About Text Styling */
+.about-text {
+    color: white; /* Make the text white to contrast with the image */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    padding: 10px 0;
+}
+
+.about-text h1 {
+    position: relative;
+    color: #011627;
+    /*color: #1cb0f6;*/
+    font-size:3vw;
+    text-align: center;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #about {
+        height: auto;
+    }
+
+    .about-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+}
+
+.cta-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00b295;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #008a73;
+}
+
+/* Section Styles */
+section {
+    padding: 50px 20px;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #00b295;
+    margin-bottom: 20px;
+}
+
+/* Benefits Section */
+.benefits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.benefit-item {
+    width: 30%;
+    margin: 20px 0;
+}
+
+.benefit-item i {
+    font-size: 3rem;
+    color: #00b295;
+}
+
+.benefit-item h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+/* Impact Section */
+.impact-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.impact-item {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.impact-item h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #00b295;
+}
+
+/* Team Section */
+.team {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.team-member {
+    width: 30%;
+    margin: 20px 0;
+}
+
+.team-member img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    margin-right: 20px;
-}
-.timeline {
-    margin-bottom: 40px;
+    object-fit: cover;
 }
 
-.timeline h4 {
-    font-size: 28px;
-    color: #291900;
-    margin-bottom: 20px;
+.team-member h4 {
+    margin-top: 10px;
+    font-size: 1.5rem;
 }
 
-.timeline-event {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
-.event-photo img {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .benefit-item, .team-member {
+        width: 100%;
+    }
 
-.event-text {
-    max-width: 600px;
-    text-align: left;
-}
-
-.event-text h5 {
-    font-size: 24px;
-    color: #00B295;
-}
-
-.event-text p {
-    font-size: 18px;
-    color: #291900;
-}
-
-.bio-text {
-    max-width: 600px;
-    text-align: left;
-}
-
-.bio-text h3 {
-    font-size: 28px;
-    color: #291900;
-}
-
-.bio-text p {
-    font-size: 18px;
-    color: #291900;
-}
-
-.mission-vision-values {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
-}
-
-.mvv-item {
-    text-align: center;
-    max-width: 300px;
-}
-
-.mvv-item img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-.mvv-item h4 {
-    font-size: 24px;
-    color: #EF701F;
-}
-
-.mvv-item p, .mvv-item ul {
-    font-size: 18px;
-    color: #291900;
+    .impact-stats {
+        flex-direction: column;
+    }
 }

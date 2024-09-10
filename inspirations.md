@@ -16,6 +16,7 @@ https://viewbook.tiltonschool.org/
 ## Homepage
 ### Hero section
 7eleven website
+hom wellness
 contrast: features
 /*balmukund text effects: https://codepen.io/alvarotrigo/pen/RwOrwro
 https://codepen.io/alvarotrigo/pen/rNbxNWg
