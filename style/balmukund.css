@@ -26,6 +26,10 @@ margin-bottom: 2vw;
     font-family: "Spectral", serif;
 }
 
+section {
+    padding: 40px 0;
+}
+
 /*introsection*/
 .carousel-container {
     position: relative;
@@ -821,7 +825,7 @@ font-weight: 1000;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  padding: 40px;
+  padding: 0px;
   /*radial gradient with blury effect*/
   background: radial-gradient(circle, #1cb0f680 20%, #fffbf2 100%);
   background-blend-mode: color-burn;
