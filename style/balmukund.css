@@ -865,43 +865,102 @@ font-weight: 1000;
   text-align: left;
 }
 
-
-.location-icon {
-    
-    color: #FF4E00; /* Icon color */
-}
-
+/* General Card Styling */
 .center-card {
-  background-color: #fffbf260;
-  /*border: 2px solid #00B295;*/
-  border-radius: 10px;
-  padding: 1vw;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fffbf270;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light divider line */
+
+    border-radius: 10px;
+    padding: 1vw;
+    margin-bottom: 20px;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+        box-shadow: -1px 3px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+
+    display: flex;
+    justify-content: space-between; /* Spacing between content */
+    align-items: center; /* Centers the button vertically */
 }
 
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Full width */
+}
+
+/* Left column: Heading, Location, and Contact */
 .card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px; /* Space between content and button */
+}
+
+.center-card h3 {
+    font-size: 1.5vw;
+    color: #011627;
+    margin: 0;
+    line-height: 1.2;
+    font-family: "Spectral", sans-serif;
+font-weight: 1000;
+}
+
+/* Location and Contact Info */
+.location-contact {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0px;
-    color: #011627;
-  margin: 0;
-  font-size: 1.5vw;
-font-family: "Spectral", sans-serif;
-font-weight: 1000;
-}
-.center-card h3 {
-  font-size: 1.8vw;
-  color: #011627;
-  margin: 0px !important;
-  line-height: 1;
+    margin-top: 5px;
 }
 
-.center-card p {
-  font-size: 1.2vw;
-  color: #011627;
-  line-height: 1;
+.location-contact p {
+    font-size: 1vw;
+    font-family: "Karla", sans-serif;
+    color: #011627;
+    margin: 0 10px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.location-icon, .phone-icon {
+    margin-right: 8px;
+    color: #FF4E00;
+}
+
+/* Right column: Button */
+.card-button {
+    display: flex;
+    align-items: center; /* Center the button vertically */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .center-card {
+        flex-direction: column; /* Stack content vertically on mobile */
+        align-items: flex-start;
+    }
+
+    .card-header {
+        margin-bottom: 10px;
+    }
+
+    .location-contact {
+        flex-direction: column; /* Stack location and contact info vertically on smaller screens */
+        align-items: flex-start;
+    }
+
+    .card-button {
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    .know-more-btn {
+        font-size: 3vw;
+        padding: 8px 16px;
+    }
+
+    .center-card h3, .location-contact p {
+        font-size: 4vw;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -1532,7 +1591,7 @@ path[data-id="CA"] {
 }
 
 .testimonial-container {
-    max-width: 1200px;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -1546,12 +1605,12 @@ path[data-id="CA"] {
 
 .testimonial-text-carousel {
     flex: 1;
-    padding-right: 20px;
+    padding-right: 3vw;
     font-size: 1.2em;
     line-height: 1.6em;
     position: relative;
-    overflow: hidden;
-    height: 200px; /* Fixed height for the carousel */
+   /* overflow: hidden;*/
+    height: 20vh; /*Fixed height for the carousel */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1559,10 +1618,12 @@ path[data-id="CA"] {
 
 /* Center content vertically within each text box */
 .testimonial-text-box {
+    font-size: 1.2vw;
+    color: #011627;
     position: absolute;
     width: 100%;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 2s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centers content vertically */
@@ -1571,14 +1632,20 @@ path[data-id="CA"] {
     text-align: center; /* Ensures text is centered */
 }
 
+.testimonial-text-box p {
+    margin: 0;
+}
+
 .testimonial-text-box.active {
     opacity: 1;
 }
 
 .person-details {
     font-style: italic;
-    margin-top: 10px;
-    color: #555;
+    margin-top: 2px;
+    color: #011627a0;
+    font-size: 0.8vw;
+    font-weight: 900;
 }
 .testimonial-videos {
     flex: 1;
@@ -1641,8 +1708,8 @@ path[data-id="CA"] {
 
 /* Videos */
 .collage-item.video iframe {
-    width: 100%;
-    height: 200px;
+    width: 315px;
+    height: 315px;
     border-radius: 15px; /* Rounding off video corners */
 }
 
@@ -1670,6 +1737,11 @@ h2 {
     max-width: 800px;
     margin: 0 auto;
 }
+.faq-container h2 {
+    font-size: 3vw;
+    margin-bottom: 2vw;
+    font-family: "Spectral", serif;
+}
 
 .faq-item {
     border-bottom: 1px solid #ccc;
@@ -1684,26 +1756,32 @@ h2 {
     outline: none;
     cursor: pointer;
     padding: 10px;
-    font-size: 1.2em;
+    font-size: 1vw;
+    font-family: "Spectral", serif;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .faq-question:after {
     content: '\002B'; /* Plus sign */
-    font-size: 1.2em;
+    font-size: 1.5vw;
+    font-weight: 1000;
+    color: #00B295;
     float: right;
     transition: transform 0.3s ease;
 }
 
 .faq-question.active:after {
     content: '\2212'; /* Minus sign */
+    font-weight: bolder;
+    color: #FF4E00;
     transform: rotate(180deg);
 }
 
 .faq-answer {
     display: none;
     padding: 10px;
+    font-family: "Karla", sans-serif;
     background-color: #f1f1f1;
     font-size: 1em;
     line-height: 1.6em;
@@ -1770,10 +1848,11 @@ h2 {
     font-size: 3vw;
     margin-bottom: 2vw;
     font-family: "Spectral", serif;
+    color: #FFFBF2 !important;
 }
 
 .contact-container p {
-    font-size: 1.2em;
+    font-size: 1vw;
     margin-bottom: 40px;
 }
 
@@ -1798,18 +1877,21 @@ h2 {
 }
 
 .contact-item h3 {
-    font-size: 1.5em;
+    font-size: 1.2vw;
     margin-bottom: 10px;
+    font-family: "Spectral", serif;
 }
 
 .contact-item p {
-    font-size: 1.2em;
+    font-size: 1vw;
+    font-family: "Karla", sans-serif;
 }
 
 .contact-list {
     list-style: none;
     padding-left: 0;
     text-align: left;
+    font-family: 'Karla', sans-serif;
 }
 
 .contact-list li {
@@ -1828,6 +1910,12 @@ h2 {
 
 .social-media {
     margin-top: 30px;
+}
+
+.social-media h3 {
+    font-size: 1.2vw;
+    margin-bottom: 10px;
+    font-family: "Spectral", serif;
 }
 
 .social-links a {
