@@ -13,30 +13,7 @@
   .intro-image svg {
     filter: drop-shadow(15px 10px 7px #0000002e);
   }
-  .class-links {
-      display: flex;
-      justify-content: space-around;
-      margin: 20px 0;
-  }
-  .class-link {
-      max-width: 100%;
-      max-height: 100%;
-      display: inline-block;
-  }
-.offering-section {
-    text-align: center;
-    padding: 25px 20px;
-    overflow: hidden;
-}
 
-    
-.offering-section h2 {
-    margin-bottom: 30px;
-    font-size: 2em;
-    color: #011627;
-    font-family: "Holtwood One SC", serif;
-
-}
   .section-subheader {
       font-size: 32px;
       font-family: 'Alegreya-Medium', serif;
@@ -67,41 +44,7 @@ color: white;
 padding: 10px 0;
 }
 
-.logo {
-height: 50px;
-margin-right: 20px;
-}
 
-.brand-title {
-font-size: 24px;
-font-weight: bold;
-}
-
-.toggle-button {
-display: none;
-flex-direction: column;
-justify-content: space-around;
-width: 24px;
-height: 24px;
-background: transparent;
-border: none;
-cursor: pointer;
-padding: 0;
-}
-
-.toggle-button .bar {
-height: 3px;
-width: 100%;
-background-color: black;
-border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-
-.toggle-button {
-  display: flex;
-}
-}
 .card-container {
 display: flex;
 flex-wrap: wrap;
@@ -631,6 +574,7 @@ body {
   background-color: linear-gradient(90deg, #FFFBF2 50%, #FF4E00 50%) !important;
   border-radius: 15px;
   height: 60vh;
+  overflow: hidden; /* Ensures no overflow */
 }
 
 .features-section h2 {
@@ -642,6 +586,7 @@ body {
   font-family: "arseenal", sans-serif;
   font-style: italic;
   font-weight:100;
+  
 }
 
 .feature-card {
@@ -651,14 +596,19 @@ body {
   border-top-right-radius: 50%;
   box-shadow: 0 6px 12px rgba(2, 172,144, 0.1);
   padding: 30px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background-color 0.4s ease-in-out;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
   justify-content:end;
   display: flex;
   flex-direction: column;
-
+  overflow: hidden; /* Avoid content overflow */
+  transform-origin: center; /* Sets scaling from the center */
+}
+.feature-card:not(:hover) {
+  transform: scale(1); /* Ensure non-hovered cards stay the same size */
+  transition: transform 0.3s ease-in-out; /* Keep the transition smooth */
 }
 
 .feature-card:before {
@@ -678,6 +628,7 @@ body {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(2, 172, 144, 0.2);
   background-color: #ffd700;
+  z-index: 10; /* Ensures it floats above other cards */
 }
 
 .feature-card:hover .feature-benefits {
@@ -732,7 +683,7 @@ body {
 
   .features-section h2 {
     font-size: 2em;
-  }Empower your child with holistic development through Bal-Mukund. This unique program nurtures the mind, body, and soul, inspiring children to flourish with love and care.
+  }
 }
 
 /*old-gallery*/
@@ -823,6 +774,7 @@ body {
 }
 
 /*our centers map*/
+/*
 path[id="clearTearDrop"] {
     stroke: white;
     fill:paleturquoise !important;
@@ -830,7 +782,7 @@ path[id="clearTearDrop"] {
     transition: fill .4s ease;
     transform-origin: center center;
 }
-
+*/
 /*path:hover {
     fill: orange !important;
     cursor: pointer;
@@ -849,7 +801,9 @@ path[id="clearTearDrop"] {
   justify-content: center;
   align-items: flex-start;
   padding: 40px;
-  background-color: #1cb0f640;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 450"><defs><filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="130" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur></filter></defs><g filter="url(#bbblurry-filter)"><ellipse rx="257.5" ry="275" cx="229.3621562610973" cy="223.13197742808947" fill="#1cb0f6f0"></ellipse></g></svg>');
+    background-size: cover;
+    background-position: center;
   gap: 20px;
 }
 
@@ -890,17 +844,12 @@ path[id="clearTearDrop"] {
 
 
 .location-icon {
-    margin-right: 0.5vw;
-    color: #FF4E00; /* Fill color for the icon */
-    border: 1px solid #011627; /* Border color */
-    border-radius: 50%;
-    padding: 0.5vw;
-    background-color: #FF4E00; /* Background color for the icon */
-    color: #FFF3DD; /* Icon color */
+    
+    color: #FF4E00; /* Icon color */
 }
 
 .center-card {
-  background-color: #fffbf2;
+  background-color: #fffbf260;
   /*border: 2px solid #00B295;*/
   border-radius: 10px;
   padding: 1vw;
@@ -1381,27 +1330,87 @@ path[data-id="CA"] {
     }
 }
 
+/*otherOfferings*/
 .otherOfferings-section {
     overflow: hidden;
     position: relative;
     width: 100%;
     text-align: center;
-    
+    padding: 20px;
 }
 
 .otherOfferings-section h2 {
     margin-bottom: 30px;
     font-size: 2em;
     color: #011627;
-      font-family: "Holtwood One SC", serif;
+    font-family: "Holtwood One SC", serif;
+}
 
+.class-links {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+}
+
+.class-link {
+    max-width: 30%; /* Limit width to 30% on larger screens */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.class-link img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: shadow for better look */
+}
+
+.class-link:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.offering-section {
+    text-align: center;
+    padding: 25px 20px;
+    overflow: hidden;
+}
+
+.offering-section h2 {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #011627;
+    font-family: "Holtwood One SC", serif;
+}
+
+/* Tablet View (max-width: 768px) */
+@media (max-width: 768px) {
+    .class-link {
+        max-width: 45%; /* Display two images per row on tablets */
+    }
+
+    .otherOfferings-section h2 {
+        font-size: 1.75em; /* Slightly smaller font size for tablets */
+    }
+}
+
+/* Mobile View (max-width: 600px) */
+@media (max-width: 600px) {
+    .class-link {
+        max-width: 100%; /* Stack images vertically on mobile */
+        margin-bottom: 20px;
+    }
+
+    .otherOfferings-section h2 {
+        font-size: 1.5em; /* Smaller font size for mobile */
+    }
 }
 
 /*Testimonial section*/
 
 .testimonial-section {
     padding: 6vw;
-    background-color: #f9f9f9;
+    background-color: #FFFBF2;
     height: 90vh;
     justify-content: space-between;
     align-items: center;
@@ -1497,17 +1506,7 @@ path[data-id="CA"] {
   object-fit: cover;
 }
 
-/*FAQ section*/
 
-.faq-section {
-    padding: 40px;
-    background-color: #FFFBF2;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
 
 /* Collage Layout */
 .testimonial-collage {
@@ -1545,6 +1544,17 @@ h2 {
     text-align: center;
     font-size: 2em;
     margin-bottom: 20px;
+}
+/*FAQ section*/
+/* Base styles */
+.faq-section {
+    padding: 40px;
+    background-color: #FFFBF2;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .faq-item {
@@ -1585,19 +1595,61 @@ h2 {
     line-height: 1.6em;
 }
 
-/*contact*/
+/* Tablet View (below 768px) */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 30px; /* Adjust padding for smaller screens */
+    }
 
+    .faq-container {
+        max-width: 90%; /* Make the container more fluid */
+    }
+
+    .faq-question {
+        font-size: 1.1em; /* Slightly reduce font size */
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+
+    .faq-answer {
+        font-size: 0.95em; /* Reduce answer font size slightly */
+    }
+}
+
+/* Mobile View (below 600px) */
+@media (max-width: 600px) {
+    .faq-section {
+        padding: 20px; /* Further reduce padding for mobile */
+    }
+
+    .faq-container {
+        max-width: 100%; /* Make full-width on mobile */
+    }
+
+    .faq-question {
+        font-size: 1em; /* Reduce question font size */
+        padding: 8px 5px; /* Adjust padding */
+    }
+
+    .faq-question:after {
+        font-size: 1em; /* Adjust icon size */
+    }
+
+    .faq-answer {
+        font-size: 0.9em; /* Further reduce answer font size */
+    }
+}
+
+/*contact*/
 .contact-section {
     padding: 50px 20px;
     background-color: #011627;
 }
 
-
 .contact-container {
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
-    COLOR: #FFFBF2;
+    color: #FFFBF2;
 }
 
 .contact-container h2 {
@@ -1606,28 +1658,30 @@ h2 {
 }
 
 .contact-container p {
-    font-size: 1vw;
+    font-size: 1.2em;
     margin-bottom: 40px;
 }
 
 .contact-info {
-  display: flex;
-  justify-content: space-between; /* Ensure equal spacing between items */
-  gap: 20px; /* Add space between boxes */
+    display: flex;
+    justify-content: space-between; /* Ensure equal spacing between items */
+    gap: 20px; /* Add space between boxes */
+    flex-wrap: wrap; /* Ensure wrapping on smaller screens */
 }
 
-/* Equal height and width for contact items */
 .contact-item {
-  flex: 1; /* Ensures all items take up equal space */
-  padding: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light divider line */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0  20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  min-height: 150px; /* Ensures all boxes have a minimum height */
+    flex: 1; /* Ensures all items take up equal space */
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light divider line */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    min-height: 150px; /* Ensures all boxes have a minimum height */
+    max-width: 45%; /* Limit width to 45% on larger screens */
 }
+
 .contact-item h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
@@ -1637,49 +1691,58 @@ h2 {
     font-size: 1.2em;
 }
 
-/* Contact list */
 .contact-list {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
 }
 
 .contact-list li {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .contact-list a {
-  color: #fffbf2;
-  text-decoration: none;
+    color: #fffbf2;
+    text-decoration: none;
 }
 
 .contact-list a:hover {
-  text-decoration: underline;
-  color: #FF4E00;
+    text-decoration: underline;
+    color: #FF4E00;
 }
 
-/* Adds spacing and a hover effect for social media icons */
 .social-media {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .social-links a {
-  margin: 0 10px;
-  font-size: 2em;
-  color: #FF4E00;
+    margin: 0 10px;
+    font-size: 2em;
+    color: #FF4E00;
 }
 
 .social-links a:hover {
-  color: #ffd700;
+    color: #ffd700;
 }
 
-/* Box-shadow around entire section */
-.contact-container {
-  padding: 20px;
+.copy-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 5px;
+}
+
+.copy-btn i {
+    color: #FF4E00; /* Your theme color */
+}
+
+.copy-btn:hover i {
+    color: #ffd700; /* Your hover color */
 }
 
 .social-links i {
     font-size: 2vw;
-
     transition: transform 0.3s ease;
 }
 
@@ -1687,33 +1750,55 @@ h2 {
     transform: scale(1.1);
 }
 
-/* Adds a soft divider between the contact-item elements */
-.contact-item {
-  padding: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light divider line */
+/* Mobile responsiveness (below 768px) */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Stack the contact items vertically */
+    }
+
+    .contact-item {
+        max-width: 100%; /* Ensure full width for contact items */
+        margin-bottom: 20px; /* Add space between stacked items */
+    }
+
+    .contact-container h2 {
+        font-size: 2em; /* Reduce font size */
+    }
+
+    .contact-container p {
+        font-size: 1.2em;
+    }
+
+    .contact-item h3 {
+        font-size: 1.3em; /* Adjust heading size */
+    }
+
+    .social-links a {
+        font-size: 1.3em; /* Slightly reduce icon size */
+    }
+
+    .social-links i {
+        font-size: 1.3em;
+    }
 }
 
+/* Mobile responsiveness (below 600px) */
+@media (max-width: 768px) {
+    .contact-container h2 {
+        font-size: 1.5em; /* Reduce heading size further */
+    }
 
-.copy-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 1em;
-  margin-left: 5px;
-}
+    .contact-container p {
+        font-size: 1em; /* Reduce paragraph size */
+    }
 
-.copy-btn i {
-  color: #FF4E00; /* Your theme color */
-}
+    .social-links a {
+        font-size: 1.5em; /* Smaller icons for very small screens */
+    }
 
-.copy-btn:hover i {
-  color: #ffd700; /* Your hover color */
-}
-
-.contact-list {
-    list-style-type: none;
-    padding: 0;
-    text-align: left; 
+    .contact-item {
+        padding: 15px; /* Reduce padding on mobile */
+    }
 }
 
 
@@ -1728,12 +1813,12 @@ h2 {
 /*benefits section*/
 .benefits-carousel {
     background-color: #FFFBF2; /* Background color matching your theme */
-    padding: 50px 20px;
+    padding: 5vw 2.5vw;
     position: relative;
     overflow: hidden;
     text-align: center;
     margin-top: 2vw;
-    height: 40vh;
+
 }
 .benefits-carousel-container {
     display: flex;
@@ -1771,11 +1856,12 @@ h2 {
 
 .benefits-carousel-controls {
     position: absolute;
-    bottom: 35px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 .benefits-carousel-controls .benefits-prev,
@@ -1795,9 +1881,9 @@ h2 {
 .benefits-carousel-dots {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
+    align-items: center;
+    justify-items: center;
+    
 }
 
 .benefits-carousel-dots .benefits-dot {

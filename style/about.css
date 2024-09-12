@@ -51,6 +51,11 @@ section.reverse {
 /* Image Column */
 .image-column {
     background-color: #1cb0f640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*span the entire height of the row*/
+    height: 100%;
 }
 
 .image-column img {
@@ -58,7 +63,7 @@ section.reverse {
     height: auto;
     display: block;
     /*cover*/
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Text Column */
