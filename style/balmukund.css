@@ -1790,7 +1790,7 @@ path[data-id="CA"] {
 
 .collage-item {
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     border-radius: 10px;
 }
 
